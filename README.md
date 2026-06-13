@@ -11,7 +11,8 @@
 ---
 
 ## 🌐 Live Demo
-👉 [Click here to try the chatbot](https://chat-bot-lime-nine-60.vercel.app)
+👉 [Click here to try the chatbot](https://shikshyalayaai
+.vercel.app)
 
 ---
 
