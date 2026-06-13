@@ -99,14 +99,20 @@ This chatbot solves that instantly:
 ---
 
 ## 📁 Project Structure
+## 📂 Project Structure
+
+```text
 Chat-bot/
+│
 ├── api/
-│   └── chat.js     # Serverless backend (hides API key)
-├── index.html      # Main UI structure
-├── style.css       # Styling and responsive layout
-├── script.js       # Chat logic
-├── .gitignore      # Ignores .env file
-└── README.md       # Project documentation
+│   └── chat.js          # Serverless backend API (protects API key)
+│
+├── index.html           # Main chatbot user interface
+├── style.css            # Styling and responsive design
+├── script.js            # Frontend chat functionality
+├── .gitignore           # Excludes sensitive files from Git
+└── README.md            # Project documentation
+```
 ---
 
 ## 🗺 Roadmap
