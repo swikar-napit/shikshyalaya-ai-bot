@@ -1,5 +1,5 @@
 # 🤖 Shikshyalaya College AI Chatbot
-> 💬 *Your Smart Assistant for Shikshyalaya College — Powered by Gemini AI*
+> 💬 *Your Smart Assistant for Shikshyalaya College — Powered by Groq AI (LLaMA 3)*
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/swikar-napit/Chat-bot)
 ![GitHub stars](https://img.shields.io/github/stars/swikar-napit/Chat-bot?style=social)
@@ -7,6 +7,11 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)
 ![Nepal](https://img.shields.io/badge/Made%20in-Nepal%20🇳🇵-blue)
+
+---
+
+## 🌐 Live Demo
+👉 [Click here to try the chatbot](https://chat-bot-lime-nine-60.vercel.app)
 
 ---
 
@@ -18,7 +23,6 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Project Structure](#-project-structure)
-- [Configuration](#-configuration)
 - [Roadmap](#-roadmap)
 - [License](#-license)
 - [Author](#-author)
@@ -38,11 +42,12 @@ Students can instantly ask about **programs, admissions, clubs, contacts, and ca
 ## ✨ Features
 
 - 🎓 Answers questions about CSIT, BBA, and MBA programs
-- 🤖 AI-powered responses using Google Gemini
+- 🤖 AI-powered responses using Groq AI (LLaMA 3.3 70B)
 - 💬 Real-time chat with typing indicator
 - 📱 Fully responsive — works on mobile & desktop
 - ⚡ Fast, no-login, no-install required
-- 🌐 Runs entirely in the browser (no backend needed)
+- 🔒 API key hidden securely via backend (Vercel)
+- 🌐 Hosted live on Vercel
 - 🙏 Nepali-friendly greeting (Namaste!)
 - 🔒 College-specific knowledge only — no off-topic answers
 
@@ -70,32 +75,16 @@ This chatbot solves that instantly:
 | HTML5 | Structure |
 | CSS3 | Styling & Responsive Design |
 | JavaScript (ES6+) | Chat Logic |
-| Google Gemini (Bytez API) | AI Responses |
+| Groq API (LLaMA 3.3 70B) | AI Responses |
+| Vercel Serverless Functions | Secure Backend |
 | Google Fonts (Poppins) | Typography |
 | Material Design Icons | UI Icons |
 
 ---
 
-## ⚙️ Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/swikar-napit/Chat-bot.git
-
-# Go to project folder
-cd Chat-bot
-
-# Open in browser (no dependencies needed!)
-open index.html
-```
-
-Or simply open `index.html` with **VS Code Live Server**.
-
----
-
 ## 🚀 Usage
 
-1. Open the chatbot in your browser
+1. Open the live chatbot link
 2. Type your question in the input box
 3. Press **Enter** or click the **Send** button
 4. Get an instant AI-powered answer!
@@ -110,25 +99,26 @@ Or simply open `index.html` with **VS Code Live Server**.
 ---
 
 ## 📁 Project Structure
-
-```
 Chat-bot/
+├── api/
+│   └── chat.js     # Serverless backend (hides API key)
 ├── index.html      # Main UI structure
 ├── style.css       # Styling and responsive layout
-└── script.js       # Chat logic and Gemini API calls
-```
-
+├── script.js       # Chat logic
+├── .gitignore      # Ignores .env file
+└── README.md       # Project documentation
 ---
 
 ## 🗺 Roadmap
 
 - [x] Basic chat interface
-- [x] Gemini AI integration
+- [x] AI integration (Groq LLaMA 3.3)
 - [x] College knowledge base
 - [x] Mobile responsive design
+- [x] Secure backend API key handling
+- [x] Live deployment on Vercel
 - [ ] Add admission form links
 - [ ] Multi-language support (Nepali + English)
-- [ ] Backend for secure API key handling
 - [ ] Dark mode
 
 ---
