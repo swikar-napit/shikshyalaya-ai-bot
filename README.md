@@ -99,7 +99,6 @@ This chatbot solves that instantly:
 ---
 
 ## 📁 Project Structure
-## 📂 Project Structure
 
 ```text
 Chat-bot/
