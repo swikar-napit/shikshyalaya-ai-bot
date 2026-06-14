@@ -16,14 +16,15 @@
 }
 
 body {
- background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   /* Support for modern mobile browsers to prevent URL bar issues */
-  min-height: 100dvh; 
+  min-height: 100dvh;
 }
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -34,7 +35,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,11 +43,21 @@ body {
   flex-shrink: 0;
 }
 
-.hdr-text { flex: 1; text-align: left; }
+.hdr-text {
+  flex: 1;
+  text-align: left;
+}
 
-.hdr-title { font-size: 13px; font-weight: 600; color: #fff; }
+.hdr-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
 
-.hdr-sub { font-size: 10px; color: rgba(255,255,255,0.7); }
+.hdr-sub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
 
 .online-dot {
   width: 8px;
@@ -74,7 +85,9 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.chip:hover { background: #e0e7ff; }
+.chip:hover {
+  background: #e0e7ff;
+}
 
 
 /* Base Container (Laptop View) */
@@ -113,7 +126,7 @@ body {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background: #f5f7ff; 
+  background: #f5f7ff;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -122,8 +135,10 @@ body {
 .message {
   max-width: 85%;
   padding: 10px 14px;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   line-height: 1.4;
+  word-break: break-word; 
+  overflow-wrap: break-word;
 }
 
 .message.user {
@@ -131,15 +146,17 @@ body {
   color: white;
   align-self: flex-end;
   border-radius: 18px 18px 2px 18px;
+  word-wrap: break-word;
 }
 
 .message.bot {
-  background:#ffffff;
+  background: #ffffff;
   color: var(--text-dark);
   align-self: flex-start;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   border-radius: 18px 18px 18px 2px;
   border: 1px solid #e2e8f0;
+  word-wrap: break-word;
 }
 
 .typing {
@@ -150,18 +167,22 @@ body {
 }
 
 .chat-input {
-   display: flex;
-  padding: 8px 12px; /* Adjusted padding for better spacing */
+  display: flex;
+  padding: 8px 12px;
+  /* Adjusted padding for better spacing */
   background: #fff;
   border-top: 1px solid #f1f5f9;
   gap: 10px;
-  align-items: center; /* Ensures the input and button are perfectly centered vertically */
-  width: 100%; /* Ensures the container fills the parent */
+  align-items: center;
+  /* Ensures the input and button are perfectly centered vertically */
+  width: 100%;
+  /* Ensures the container fills the parent */
 }
 
 .chat-input input {
-    flex: 1;
-  min-width: 0; /* CRITICAL FIX: This allows the input to "squeeze" and shrink */
+  flex: 1;
+  min-width: 0;
+  /* CRITICAL FIX: This allows the input to "squeeze" and shrink */
   padding: 12px 18px;
   border: 1px solid #e2e8f0;
   border-radius: 25px;
@@ -172,14 +193,15 @@ body {
 }
 
 .chat-input button {
-  background:#b21f1f;
+  background: #b21f1f;
   color: #fff;
   border: none;
   border-radius: 50%;
   width: 45px;
   height: 45px;
   cursor: pointer;
-  flex-shrink: 0; /* Prevents the button from being squashed */
+  flex-shrink: 0;
+  /* Prevents the button from being squashed */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,24 +211,24 @@ body {
 
 @media (max-width: 480px) {
   .chat-container {
-    width: 92%; 
+    width: 92%;
     height: 80vh;
-    border-radius: 25px; 
+    border-radius: 25px;
     margin: 20px auto;
   }
 
   .chat-input {
-    padding: 10px 12px; 
-    padding-bottom: 15px; 
+    padding: 10px 12px;
+    padding-bottom: 15px;
   }
 
   .chat-input input {
     padding: 10px 15px;
-    font-size: 15px; 
+    font-size: 15px;
   }
 
   .chat-input button {
-    width: 40px; 
+    width: 40px;
     height: 40px;
   }
 }
