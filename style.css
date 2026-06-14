@@ -135,7 +135,7 @@ body {
 .message {
   max-width: 85%;
   padding: 10px 14px;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   line-height: 1.4;
   word-break: break-word; 
   overflow-wrap: break-word;
