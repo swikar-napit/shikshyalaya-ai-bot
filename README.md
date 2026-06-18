@@ -42,7 +42,7 @@ Students can instantly ask about **programs, admissions, clubs, contacts, and ca
 ## ✨ Features
 
 - 🎓 Answers questions about CSIT, BBA, and MBA programs
-- 🤖 AI-powered responses using Groq AI (LLaMA 3.3 70B)
+- 🤖 AI-powered responses using Groq AI
 - 💬 Real-time chat with typing indicator
 - 📱 Fully responsive — works on mobile & desktop
 - ⚡ Fast, no-login, no-install required
@@ -122,9 +122,7 @@ Chat-bot/
 - [x] Mobile responsive design
 - [x] Secure backend API key handling
 - [x] Live deployment on Vercel
-- [ ] Add admission form links
-- [ ] Multi-language support (Nepali + English)
-- [ ] Dark mode
+
 
 ---
 
