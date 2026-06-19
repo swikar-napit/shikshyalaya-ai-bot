@@ -4,7 +4,7 @@
 // browser dev tools, so a system prompt placed there can be stripped out
 // or overridden by a direct call to this endpoint. By owning the system
 // prompt here and discarding any "system" role messages the client sends,
-// this endpoint can't be hijacked into acting as a free, unrestricted LLM.
+// this endpoint can't be hijacked into acting as a free, unrestricted LLM. Used 10509,
 
 const SYSTEM_PROMPT = `You are the official, friendly AI Chatbot for "Shikshyalaya College".
 
@@ -126,7 +126,7 @@ INSTRUCTIONS
 // traffic, swap this for Vercel KV / Upstash Redis.
 const requestLog = new Map();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
-const RATE_LIMIT_MAX_REQUESTS = 12;     // max messages per minute per IP
+const RATE_LIMIT_MAX_REQUESTS = 5;     // max messages per minute per IP
 
 function isRateLimited(ip) {
   const now = Date.now();
@@ -139,7 +139,7 @@ function isRateLimited(ip) {
 }
 
 const MAX_MESSAGE_LENGTH = 800;   // characters, per message
-const MAX_HISTORY_MESSAGES = 12;  // how many past turns to forward to the model
+const MAX_HISTORY_MESSAGES = 1;   // no history — only the latest user message is forwarded
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -192,7 +192,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
         messages: finalMessages,
-        max_tokens: 700,
+        max_tokens: 400,
         temperature: 0.3 // lower than before (0.7) so factual answers stay consistent
       })
     });
