@@ -67,6 +67,26 @@ body {
   flex-shrink: 0;
 }
 
+.clear-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.clear-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .chip-row {
   display: flex;
   gap: 6px;
@@ -87,6 +107,11 @@ body {
 
 .chip:hover {
   background: #e0e7ff;
+}
+
+.chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 
@@ -159,6 +184,24 @@ body {
   word-wrap: break-word;
 }
 
+.message.bot ul {
+  margin: 4px 0 4px 18px;
+  padding: 0;
+}
+
+.message.bot li {
+  margin-bottom: 2px;
+}
+
+.message a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.message.user a {
+  color: #dbeafe;
+}
+
 .typing {
   padding: 5px 20px;
   font-size: 0.8rem;
@@ -192,6 +235,12 @@ body {
   transition: border 0.2s;
 }
 
+.chat-input input:disabled {
+  background: #eef0f3;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
 .chat-input button {
   background: #b21f1f;
   color: #fff;
@@ -206,6 +255,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+  transition: opacity 0.2s;
+}
+
+.chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 

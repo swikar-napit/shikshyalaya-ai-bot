@@ -21,6 +21,9 @@
                     <div class="hdr-sub">Powered by Groq AI · Lokanthali, Bhaktapur</div>
                 </div>
                 <div class="online-dot"></div>
+                <button class="clear-btn" onclick="clearChat()" title="Clear chat">
+                    <i class="zmdi zmdi-delete"></i>
+                </button>
             </div>
         </div>
         <div class="chat-messages" id="chat-messages">
@@ -46,7 +49,7 @@
 
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">
+            <button id="send-btn" onclick="sendMessage()">
                 <i class="zmdi zmdi-mail-send"></i>
             </button>
         </div>
