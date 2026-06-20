@@ -126,7 +126,7 @@ INSTRUCTIONS
 // traffic, swap this for Vercel KV / Upstash Redis.
 const requestLog = new Map();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
-const RATE_LIMIT_MAX_REQUESTS = 5;     // max messages per minute per IP
+const RATE_LIMIT_MAX_REQUESTS = 12;     // max messages per minute per IP
 
 function isRateLimited(ip) {
   const now = Date.now();
