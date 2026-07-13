@@ -15,6 +15,10 @@
   font-family: var(--font-main);
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 60%, #fdbb2d 100%);
   display: flex;
@@ -337,12 +341,32 @@ body {
   body {
     padding: 0;
     align-items: flex-end;
+    height: 100dvh;
+    height: -webkit-fill-available;
   }
 
   .chat-container {
     max-width: 100%;
     border-radius: 24px 24px 0 0;
-    height: 92vh;
+    height: 100dvh;
+    height: -webkit-fill-available;
     max-height: none;
+  }
+
+  .chat-messages {
+    padding: 12px 10px;
+  }
+
+  .chat-input {
+    padding: 8px 10px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  .hdr-title {
+    font-size: 12px;
+  }
+
+  .hdr-sub {
+    font-size: 9px;
   }
 }
