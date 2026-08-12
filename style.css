@@ -101,26 +101,6 @@ body {
   50% { opacity: 0.5; }
 }
 
-.clear-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  flex-shrink: 0;
-  transition: background 0.2s;
-}
-
-.clear-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-}
-
 /* ── MESSAGES AREA ── */
 .chat-messages {
   flex: 1;

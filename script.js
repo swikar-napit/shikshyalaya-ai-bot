@@ -1,5 +1,3 @@
-
-
 const MAX_MESSAGE_LENGTH = 600;
 
 function escapeHtml(str) {
