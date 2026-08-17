@@ -118,12 +118,6 @@ INSTRUCTIONS
 6. For anything time-sensitive or not covered above (exact fees, this year's exact deadlines, scholarship amounts, individual faculty members), say briefly that you don't have that specific detail and point the user to call 016636400 / 016636100 or email info@shikshyalayacollege.edu.np.
 7. Never repeat information the user already has in the conversation; build on it instead of restating it.`;
 
-// --- Basic abuse protection -------------------------------------------
-// In-memory per-IP rate limiter. This is intentionally simple: it resets
-// on cold start and doesn't share state across serverless instances, so
-// it's not a hard guarantee — but it blocks rapid-fire spam from a single
-// warm instance at near-zero cost. For a stronger guarantee under real
-// traffic, swap this for Vercel KV / Upstash Redis.
 const requestLog = new Map();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
 const RATE_LIMIT_MAX_REQUESTS = 12;     // max messages per minute per IP
@@ -162,10 +156,6 @@ export default async function handler(req, res) {
   if (!Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: { message: 'Invalid request: a messages array is required.' } });
   }
-
-  // SECURITY: never trust a client-supplied "system" message. Strip
-  // anything except user/assistant turns from the client, then prepend
-  // our own trusted SYSTEM_PROMPT defined above.
   const cleanHistory = messages
     .filter(
       (m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string'
@@ -198,10 +188,6 @@ export default async function handler(req, res) {
     });
 
     const data = await groqResponse.json();
-
-    // Forward Groq's real status code so the frontend can tell a genuine
-    // Groq-side failure (bad key, model error, upstream rate limit) apart
-    // from a real success — previously this always returned 200.
     return res.status(groqResponse.status).json(data);
   } catch (error) {
     console.error('Groq API error:', error);
