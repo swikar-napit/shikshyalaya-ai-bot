@@ -4,7 +4,7 @@
 // browser dev tools, so a system prompt placed there can be stripped out
 // or overridden by a direct call to this endpoint. By owning the system
 // prompt here and discarding any "system" role messages the client sends,
-// this endpoint can't be hijacked into acting as a free, unrestricted LLM. Used 10509,
+// this endpoint can't be hijacked into acting as a free, unrestricted LLM.
 
 const SYSTEM_PROMPT = `You are the official, friendly AI Chatbot for "Shikshyalaya College".
 
@@ -129,6 +129,16 @@ function isRateLimited(ip) {
   );
   timestamps.push(now);
   requestLog.set(ip, timestamps);
+
+  // Prevent unbounded memory growth: occasionally drop IPs with no recent activity.
+  if (requestLog.size > 5000) {
+    for (const [key, times] of requestLog) {
+      if (times.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) {
+        requestLog.delete(key);
+      }
+    }
+  }
+
   return timestamps.length > RATE_LIMIT_MAX_REQUESTS;
 }
 
@@ -162,8 +172,9 @@ export default async function handler(req, res) {
     )
     .map((m) => ({
       role: m.role,
-      content: m.content.slice(0, MAX_MESSAGE_LENGTH)
+      content: m.content.trim().slice(0, MAX_MESSAGE_LENGTH)
     }))
+    .filter((m) => m.content.length > 0)
     .slice(-MAX_HISTORY_MESSAGES);
 
   if (cleanHistory.length === 0) {

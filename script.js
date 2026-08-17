@@ -69,6 +69,9 @@ function showTyping(show) {
 
 async function sendMessage() {
   const inputEl = document.getElementById('user-input');
+  const sendBtn = document.getElementById('send-btn');
+  if (sendBtn?.disabled) return; // guard against double-submit while a request is in flight
+
   const message = inputEl.value.trim();
   if (!message) return;
 
